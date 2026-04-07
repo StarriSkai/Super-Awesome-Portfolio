@@ -78,10 +78,35 @@ body.page-inner {
   text-decoration: none;
   font-weight: 700;
   font-size: 0.95rem;
+  letter-spacing: 0.02em;
 }
 
 .back-nav.btn--ghost {
-  padding: 0.5rem 0.75rem;
+  padding: 0.5rem 0.82rem;
+  border-color: rgba(0, 171, 161, 0.75);
+  color: var(--star);
+  background: linear-gradient(
+    135deg,
+    rgba(0, 171, 161, 0.2) 0%,
+    rgba(255, 0, 150, 0.16) 55%,
+    rgba(255, 207, 36, 0.2) 100%
+  );
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.12) inset,
+    0 0 22px rgba(0, 171, 161, 0.22);
+}
+
+.back-nav.btn--ghost:hover {
+  border-color: var(--c-pink);
+  color: var(--c-yellow);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.2) inset,
+    0 0 26px rgba(255, 0, 150, 0.24);
+}
+
+.back-nav.btn--ghost:focus-visible {
+  outline: 2px solid var(--c-yellow);
+  outline-offset: 2px;
 }
 
 /* Bio: readable width, left-aligned body copy under centered heading */
@@ -254,6 +279,14 @@ body.page-inner {
   display: block;
   width: 100%;
   height: 100%;
+  border: 0;
+}
+
+.project-tile__video video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   border: 0;
 }
 
