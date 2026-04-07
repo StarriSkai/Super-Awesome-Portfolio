@@ -334,20 +334,18 @@ body.page-inner {
   color: var(--c-pink);
 }
 
-.commissions-tile {
-  margin-top: 1rem;
-}
-
 .commissions-gallery {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0.9rem;
+  width: 100%;
+  max-width: 44rem;
+  margin: 1rem auto 1.5rem;
 }
 
-@media (min-width: 620px) {
-  .commissions-gallery {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+.commissions-gallery .project-tile__title {
+  margin-bottom: 1.1rem;
+}
+
+.commissions-image-tile {
+  margin: 0 0 1rem;
 }
 
 .commissions-gallery .project-tile__figure {
@@ -355,10 +353,24 @@ body.page-inner {
 }
 
 .commissions-gallery .project-tile__figure img {
+  display: block;
   width: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
+  height: auto;
+  object-fit: contain;
   object-position: center;
+}
+
+@media (min-width: 900px) {
+  .commissions-gallery .project-tile__figure img {
+    max-height: 78vh;
+    margin-inline: auto;
+    width: auto;
+    max-width: 100%;
+  }
+}
+
+.commissions-image-tile:last-of-type {
+  margin-bottom: 0;
 }
 
 /* Home: section nav (equal vertical gap from hero + events via main.container gap) */
