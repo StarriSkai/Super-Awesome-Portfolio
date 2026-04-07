@@ -209,6 +209,17 @@ body.page-inner {
   }
 }
 
+.project-tile__storyboards {
+  margin-top: 0.9rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 700px) {
+  .project-tile__storyboards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
 /* Same-size frames for side-by-side images (e.g. Dice + Party Glitch) */
 .project-tile__grid--matched {
   align-items: stretch;
