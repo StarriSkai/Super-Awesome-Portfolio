@@ -67,7 +67,7 @@ body.page-inner {
   padding: 1.5rem;
 }
 
-/* Home: section buttons centered along the top */
+/* Home: section nav (sits on top edge of events card) */
 .site-nav.btn-row {
   justify-content: center;
   width: 100%;
@@ -76,6 +76,32 @@ body.page-inner {
   margin-bottom: 0;
   flex-shrink: 0;
   z-index: 1;
+}
+
+.events-stack {
+  position: relative;
+  width: 100%;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.site-nav.site-nav--on-events {
+  position: relative;
+  z-index: 1;
+  align-self: center;
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.events-stack .events-tile {
+  margin-top: 0;
+  position: relative;
+  z-index: 1;
+  padding-top: 1.35rem;
 }
 
 body::before,
@@ -538,6 +564,25 @@ body.page-home .site-footer {
   font-size: clamp(0.95rem, 2.2vw, 1.06rem);
   font-weight: 700;
   color: #1a1a1a;
+}
+
+a.events-tile__event-link {
+  color: #1a1a1a;
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 0, 150, 0.4);
+  text-underline-offset: 0.18em;
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
+}
+
+a.events-tile__event-link:hover {
+  color: var(--c-pink);
+  text-decoration-color: var(--c-pink);
+}
+
+a.events-tile__event-link:focus-visible {
+  outline: 2px solid var(--c-teal);
+  outline-offset: 3px;
+  border-radius: 4px;
 }
 
 .events-tile__meta {
