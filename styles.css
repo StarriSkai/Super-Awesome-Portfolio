@@ -68,6 +68,30 @@ body.page-inner {
   padding: 1.5rem;
 }
 
+/* Bio: readable width, left-aligned body copy under centered heading */
+.bio-about {
+  width: 100%;
+  max-width: 42rem;
+  margin: 0 auto 0.5rem;
+  text-align: left;
+}
+
+.bio-about h2 {
+  margin: 0 0 1rem;
+  font-size: clamp(1.2rem, 2.8vw, 1.45rem);
+  font-weight: 700;
+  color: var(--c-teal);
+  text-align: center;
+}
+
+.bio-about p {
+  margin-top: 0.85rem;
+}
+
+.bio-about p:first-of-type {
+  margin-top: 0;
+}
+
 /* Home: section nav (equal vertical gap from hero + events via main.container gap) */
 .site-nav.btn-row {
   justify-content: center;
