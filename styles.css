@@ -1,0 +1,210 @@
+/*
+  Starri Skai–style palette: black sky, neon lettering, white star accents.
+  Link this file + Fredoka font links on every HTML page.
+*/
+:root {
+  color-scheme: dark;
+  --bg: #000000;
+  --text: rgba(255, 255, 255, 0.92);
+  --text-muted: rgba(255, 255, 255, 0.72);
+  --card: #0d0d0d;
+  --card-border: rgba(255, 255, 255, 0.14);
+  --star: #ffffff;
+  --c-teal: #00aba1;
+  --c-lime: #c6ff64;
+  --c-pink: #ff0096;
+  --c-red: #ff1900;
+  --c-yellow: #ffcf24;
+  --font-sans: "Fredoka", system-ui, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--font-sans);
+}
+
+body {
+  margin: 0;
+  font-family: inherit;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  position: relative;
+}
+
+body.page-home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.25rem 1.5rem 2rem;
+  gap: 1.25rem;
+}
+
+body.page-inner {
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+}
+
+/* Home: section buttons centered along the top */
+.site-nav.btn-row {
+  justify-content: center;
+  width: 100%;
+  max-width: min(800px, 100%);
+  margin-top: 0;
+  margin-bottom: 0;
+  flex-shrink: 0;
+  z-index: 1;
+}
+
+body::before,
+body::after {
+  position: fixed;
+  top: 1rem;
+  color: var(--star);
+  font-size: clamp(0.75rem, 2vw, 0.95rem);
+  letter-spacing: 0.4em;
+  line-height: 1.5;
+  opacity: 0.92;
+  pointer-events: none;
+  z-index: 0;
+  white-space: pre;
+}
+
+body::before {
+  content: "✦  ★  ✧";
+  left: 1rem;
+  text-align: left;
+}
+
+body::after {
+  content: "★  ✦  ✧";
+  right: 1rem;
+  text-align: right;
+}
+
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  width: min(800px, 100%);
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 14px;
+  padding: 2rem;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.04) inset,
+    0 20px 50px rgba(0, 0, 0, 0.45);
+  text-align: center;
+}
+
+/* Per-letter neon cycle (wrap each character in <span>; use .rainbow-chars__gap for spaces) */
+.rainbow-chars {
+  margin-top: 0;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.rainbow-chars span:nth-child(5n + 1) {
+  color: var(--c-teal);
+}
+.rainbow-chars span:nth-child(5n + 2) {
+  color: var(--c-lime);
+}
+.rainbow-chars span:nth-child(5n + 3) {
+  color: var(--c-pink);
+}
+.rainbow-chars span:nth-child(5n + 4) {
+  color: var(--c-red);
+}
+.rainbow-chars span:nth-child(5n + 5) {
+  color: var(--c-yellow);
+}
+
+.rainbow-chars span.rainbow-chars__gap {
+  color: transparent;
+  display: inline-block;
+  width: 0.35em;
+}
+
+p {
+  line-height: 1.65;
+  margin: 0.75rem 0 0;
+  color: var(--text-muted);
+}
+
+.btn {
+  margin-top: 1.25rem;
+  display: inline-block;
+  text-decoration: none;
+  color: #0a0a0a;
+  padding: 0.7rem 1rem;
+  border-radius: 10px;
+  font-weight: 700;
+  border: 2px solid transparent;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--c-yellow);
+  outline-offset: 3px;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.06);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+}
+
+.btn-row .btn:nth-child(1) {
+  background: var(--c-teal);
+}
+.btn-row .btn:nth-child(2) {
+  background: var(--c-pink);
+}
+.btn-row .btn:nth-child(3) {
+  background: var(--c-lime);
+}
+.btn-row .btn:nth-child(4) {
+  background: var(--c-yellow);
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--star);
+  border-color: rgba(255, 255, 255, 0.55);
+}
+
+.btn--ghost:hover {
+  border-color: var(--c-yellow);
+  color: var(--c-yellow);
+  box-shadow: 0 0 24px rgba(255, 207, 36, 0.2);
+}
+
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.btn-row .btn {
+  margin-top: 0;
+}
+
+footer {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
