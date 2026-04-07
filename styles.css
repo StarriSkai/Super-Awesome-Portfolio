@@ -169,6 +169,24 @@ body.page-inner {
   line-height: 1.35;
 }
 
+.project-tile__subtitle {
+  margin: 1.25rem 0 0.8rem;
+  font-size: clamp(1rem, 2.4vw, 1.2rem);
+  font-weight: 700;
+  color: var(--c-teal);
+  text-align: center;
+}
+
+.project-tile__desc {
+  margin-top: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.project-tile__desc strong {
+  color: var(--text);
+}
+
 /* Home: section nav (equal vertical gap from hero + events via main.container gap) */
 .site-nav.btn-row {
   justify-content: center;
