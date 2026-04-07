@@ -66,6 +66,7 @@ body.page-inner {
   display: grid;
   place-items: center;
   padding: 1.5rem;
+  overflow-x: clip;
 }
 
 /* Bio: readable width, left-aligned body copy under centered heading */
@@ -74,6 +75,27 @@ body.page-inner {
   max-width: 42rem;
   margin: 0 auto 0.5rem;
   text-align: left;
+}
+
+/* Full-bleed banner (breaks out of .bio-about max-width) */
+.bio-about__portrait {
+  margin: 0 0 1.5rem;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.bio-about__portrait img {
+  display: block;
+  width: 100%;
+  height: min(45vh, 520px);
+  object-fit: cover;
+  object-position: center 25%;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
 }
 
 .bio-about h2 {
@@ -90,6 +112,61 @@ body.page-inner {
 
 .bio-about p:first-of-type {
   margin-top: 0;
+}
+
+/* School projects — project tiles (matches site border / transparent panels) */
+.project-tile {
+  width: 100%;
+  max-width: 44rem;
+  margin: 1.25rem auto 1.5rem;
+  padding: 1.25rem 1.15rem 1.4rem;
+  border-radius: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.22);
+  background: transparent;
+  text-align: left;
+}
+
+.project-tile__title {
+  margin: 0 0 1rem;
+  font-size: clamp(1.15rem, 2.8vw, 1.4rem);
+  font-weight: 700;
+  color: var(--c-pink);
+  text-align: center;
+}
+
+.project-tile__grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.project-tile__grid--two {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 560px) {
+  .project-tile__grid--two {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.project-tile__figure {
+  margin: 0;
+}
+
+.project-tile__figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  vertical-align: middle;
+}
+
+.project-tile__figure figcaption {
+  margin-top: 0.45rem;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  text-align: center;
+  line-height: 1.35;
 }
 
 /* Home: section nav (equal vertical gap from hero + events via main.container gap) */
