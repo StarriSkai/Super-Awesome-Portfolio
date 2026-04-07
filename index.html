@@ -55,6 +55,41 @@
         </span>
       </h1>
     </div>
+
+    <!--
+      Events: edit the text inside each <li>, or copy an entire <li class="events-tile__item">…</li>
+      block to add a row. Use <time datetime="YYYY-MM-DD"> for the machine-readable date (helps calendars & SEO).
+    -->
+    <section class="events-tile" aria-labelledby="events-heading">
+      <h2 id="events-heading" class="events-tile__heading rainbow-chars" aria-label="Upcoming events">
+        <span>U</span><span>p</span><span>c</span><span>o</span><span>m</span><span>i</span><span>n</span><span>g</span><span class="rainbow-chars__gap" aria-hidden="true"> </span><span>e</span><span>v</span><span>e</span><span>n</span><span>t</span><span>s</span>
+      </h2>
+      <ul class="events-tile__list">
+        <li class="events-tile__item">
+          <time class="events-tile__when" datetime="2026-05-17">
+            <span class="events-tile__month">May</span>
+            <span class="events-tile__day">17</span>
+            <span class="events-tile__year">2026</span>
+          </time>
+          <div class="events-tile__detail">
+            <span class="events-tile__event-name">Your event name</span>
+            <span class="events-tile__meta">City, ST · 10am–4pm</span>
+          </div>
+        </li>
+        <li class="events-tile__item">
+          <time class="events-tile__when" datetime="2026-06-07">
+            <span class="events-tile__month">Jun</span>
+            <span class="events-tile__day">7</span>
+            <span class="events-tile__year">2026</span>
+          </time>
+          <div class="events-tile__detail">
+            <span class="events-tile__event-name">Another event</span>
+            <span class="events-tile__meta">Venue or address · hours</span>
+          </div>
+        </li>
+      </ul>
+    </section>
+
     <section class="instagram-section" aria-label="Instagram posts">
       <div class="instagram-row">
         <div class="instagram-embed">
@@ -128,40 +163,6 @@
       </div>
       <p id="instagram-status" class="instagram-status" role="status" aria-live="polite"></p>
       <div id="instagram-grid" class="instagram-grid"></div>
-    </section>
-
-    <!--
-      Events: edit the text inside each <li>, or copy an entire <li class="events-tile__item">…</li>
-      block to add a row. Use <time datetime="YYYY-MM-DD"> for the machine-readable date (helps calendars & SEO).
-    -->
-    <section class="events-tile" aria-labelledby="events-heading">
-      <h2 id="events-heading" class="events-tile__heading rainbow-chars" aria-label="Upcoming events">
-        <span>U</span><span>p</span><span>c</span><span>o</span><span>m</span><span>i</span><span>n</span><span>g</span><span class="rainbow-chars__gap" aria-hidden="true"> </span><span>e</span><span>v</span><span>e</span><span>n</span><span>t</span><span>s</span>
-      </h2>
-      <ul class="events-tile__list">
-        <li class="events-tile__item">
-          <time class="events-tile__when" datetime="2026-05-17">
-            <span class="events-tile__month">May</span>
-            <span class="events-tile__day">17</span>
-            <span class="events-tile__year">2026</span>
-          </time>
-          <div class="events-tile__detail">
-            <span class="events-tile__event-name">Your event name</span>
-            <span class="events-tile__meta">City, ST · 10am–4pm</span>
-          </div>
-        </li>
-        <li class="events-tile__item">
-          <time class="events-tile__when" datetime="2026-06-07">
-            <span class="events-tile__month">Jun</span>
-            <span class="events-tile__day">7</span>
-            <span class="events-tile__year">2026</span>
-          </time>
-          <div class="events-tile__detail">
-            <span class="events-tile__event-name">Another event</span>
-            <span class="events-tile__meta">Venue or address · hours</span>
-          </div>
-        </li>
-      </ul>
     </section>
   </main>
   <script async src="https://www.instagram.com/embed.js"></script>

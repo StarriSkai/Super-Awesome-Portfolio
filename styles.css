@@ -50,7 +50,7 @@ body.page-home main.container {
   justify-content: flex-start;
   min-height: 0;
   width: 100%;
-  max-width: min(800px, 100%);
+  max-width: min(1120px, 100%);
 }
 
 body.page-home .hero-block {
@@ -71,7 +71,7 @@ body.page-inner {
 .site-nav.btn-row {
   justify-content: center;
   width: 100%;
-  max-width: min(800px, 100%);
+  max-width: min(1120px, 100%);
   margin-top: 0;
   margin-bottom: 0;
   flex-shrink: 0;
@@ -358,22 +358,34 @@ footer {
   z-index: 1;
 }
 
+body.page-home .site-footer {
+  max-width: min(1120px, 100%);
+}
+
 /* Instagram tiles (feed from /api/instagram when deployed) */
 .instagram-section {
   flex-shrink: 0;
   width: 100%;
-  margin-top: 0.5rem;
+  margin-top: 1.75rem;
   padding-top: 0.5rem;
 }
 
-/* Stacked embeds: same max width as Instagram’s post embed (540px) */
+/* Instagram embeds: column on small screens, two columns on wide screens */
 .instagram-row {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 1.25rem;
   width: 100%;
   margin-bottom: 0.75rem;
+  align-items: start;
+  justify-items: center;
+}
+
+@media (min-width: 880px) {
+  .instagram-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    justify-items: stretch;
+  }
 }
 
 .instagram-embed {
@@ -381,6 +393,12 @@ footer {
   justify-content: center;
   width: 100%;
   max-width: 540px;
+}
+
+@media (min-width: 880px) {
+  .instagram-embed {
+    max-width: none;
+  }
 }
 
 .instagram-status {
@@ -405,7 +423,7 @@ footer {
 .events-tile {
   flex-shrink: 0;
   width: 100%;
-  max-width: 540px;
+  max-width: 100%;
   margin: 2rem auto 0;
   padding: 1.35rem 1.25rem 1.5rem;
   border-radius: 12px;
@@ -433,9 +451,15 @@ footer {
   margin: 0;
   padding: 0;
   list-style: none;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 0.75rem;
+}
+
+@media (min-width: 700px) {
+  .events-tile__list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 .events-tile__item {
