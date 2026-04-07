@@ -334,6 +334,33 @@ body.page-inner {
   color: var(--c-pink);
 }
 
+.commissions-tile {
+  margin-top: 1rem;
+}
+
+.commissions-gallery {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.9rem;
+}
+
+@media (min-width: 620px) {
+  .commissions-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.commissions-gallery .project-tile__figure {
+  margin: 0;
+}
+
+.commissions-gallery .project-tile__figure img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: center;
+}
+
 /* Home: section nav (equal vertical gap from hero + events via main.container gap) */
 .site-nav.btn-row {
   justify-content: center;
