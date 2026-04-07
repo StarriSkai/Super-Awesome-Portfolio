@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Image Viewer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="page-inner page-image-viewer">
+  <a class="back-nav btn btn--ghost" id="viewer-back" href="index.html" aria-label="Back">BACK</a>
+  <div class="stars-sky" aria-hidden="true">
+    <span class="star star--sm" style="top: 14%; left: 3%">✦</span>
+    <span class="star star--lg" style="top: 9%; left: 20%; transform: rotate(-10deg)">★</span>
+    <span class="star star--2xs" style="top: 26%; left: 6%">✧</span>
+    <span class="star star--md" style="top: 38%; left: 1%">★</span>
+    <span class="star star--xs" style="top: 52%; left: 4%; transform: rotate(15deg)">✦</span>
+    <span class="star star--xl" style="top: 66%; left: 2%">✧</span>
+    <span class="star star--sm" style="top: 80%; left: 7%">★</span>
+    <span class="star star--md" style="bottom: 12%; left: 5%">✦</span>
+    <span class="star star--xs" style="bottom: 22%; left: 14%">✧</span>
+    <span class="star star--xxl" style="bottom: 6%; left: 28%; transform: rotate(8deg)">★</span>
+  </div>
+
+  <main class="container image-viewer">
+    <img id="viewer-image" src="" alt="Artwork image" />
+    <p class="image-viewer__helper">
+      If the image did not load, open it directly:
+      <a id="viewer-fallback" href="#" target="_blank" rel="noopener noreferrer">open file</a>
+    </p>
+  </main>
+
+  <script src="image-viewer.js" defer></script>
+</body>
+</html>
