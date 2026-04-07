@@ -421,6 +421,39 @@ body.page-inner {
   display: block;
 }
 
+.page-image-viewer .container.image-viewer {
+  width: 100%;
+  max-width: min(1400px, 100%);
+  padding-top: 4.25rem;
+}
+
+.image-viewer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.image-viewer #viewer-image {
+  display: block;
+  max-width: 100%;
+  max-height: min(85vh, 1200px);
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.image-viewer__helper {
+  margin: 0;
+  font-size: 0.86rem;
+  color: var(--text-muted);
+}
+
+.image-viewer__helper a {
+  color: var(--c-teal);
+}
+
 /* Home: section nav (equal vertical gap from hero + events via main.container gap) */
 .site-nav.btn-row {
   justify-content: center;
