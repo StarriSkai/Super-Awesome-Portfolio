@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body class="page-inner">
-  <a class="back-nav btn btn--ghost" href="index.html" aria-label="Back to home">←</a>
+  <a class="back-nav btn btn--ghost" href="index.html" aria-label="Back to home">BACK</a>
   <div class="stars-sky" aria-hidden="true">
     <span class="star star--sm" style="top: 14%; left: 3%">✦</span>
     <span class="star star--lg" style="top: 9%; left: 20%; transform: rotate(-10deg)">★</span>
@@ -40,8 +40,19 @@
     <h1 class="rainbow-chars" aria-label="Jewelry">
       <span>J</span><span>e</span><span>w</span><span>e</span><span>l</span><span>r</span><span>y</span>
     </h1>
-    <p>Under Construction! Come back later!</p>
+    <section class="art-gallery jewelry-gallery" aria-labelledby="jewelry-gallery-heading">
+      <h2 id="jewelry-gallery-heading" class="project-tile__title">Jewelry</h2>
+      <div class="art-gallery__grid" role="list">
+        <figure class="art-gallery__item" role="listitem"><a href="images/jewelry/1.png" target="_blank" rel="noopener noreferrer" aria-label="Open jewelry piece 1 full size"><img src="images/jewelry/1.png" alt="Jewelry piece 1" loading="lazy" decoding="async" /></a></figure>
+        <figure class="art-gallery__item" role="listitem"><a href="images/jewelry/3.png" target="_blank" rel="noopener noreferrer" aria-label="Open jewelry piece 3 full size"><img src="images/jewelry/3.png" alt="Jewelry piece 3" loading="lazy" decoding="async" /></a></figure>
+        <figure class="art-gallery__item" role="listitem"><a href="images/jewelry/4.png" target="_blank" rel="noopener noreferrer" aria-label="Open jewelry piece 4 full size"><img src="images/jewelry/4.png" alt="Jewelry piece 4" loading="lazy" decoding="async" /></a></figure>
+        <figure class="art-gallery__item" role="listitem"><a href="images/jewelry/6.png" target="_blank" rel="noopener noreferrer" aria-label="Open jewelry piece 6 full size"><img src="images/jewelry/6.png" alt="Jewelry piece 6" loading="lazy" decoding="async" /></a></figure>
+        <figure class="art-gallery__item" role="listitem"><a href="images/jewelry/8.png" target="_blank" rel="noopener noreferrer" aria-label="Open jewelry piece 8 full size"><img src="images/jewelry/8.png" alt="Jewelry piece 8" loading="lazy" decoding="async" /></a></figure>
+        <figure class="art-gallery__item" role="listitem"><a href="images/jewelry/10.png" target="_blank" rel="noopener noreferrer" aria-label="Open jewelry piece 10 full size"><img src="images/jewelry/10.png" alt="Jewelry piece 10" loading="lazy" decoding="async" /></a></figure>
+      </div>
+    </section>
     <a class="btn btn--ghost" href="index.html">Back to home</a>
   </main>
+  <script src="gallery-viewer.js" defer></script>
 </body>
 </html>
