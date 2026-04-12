@@ -340,10 +340,6 @@ body.page-inner {
   margin: 1rem auto 1.5rem;
 }
 
-.commissions-gallery .project-tile__title {
-  margin-bottom: 1.1rem;
-}
-
 .commissions-image-tile {
   margin: 0 0 1rem;
 }
@@ -1047,4 +1043,99 @@ a.events-tile__event-link:focus-visible {
   border-radius: 6px;
   background: rgba(0, 0, 0, 0.65);
   color: var(--c-yellow);
+}
+
+/* Home: large sky-style star → look-at-my-cat.html (matches .stars-sky .star) */
+.home-cat-link {
+  position: fixed;
+  bottom: max(1rem, env(safe-area-inset-bottom, 0px));
+  right: max(1rem, env(safe-area-inset-right, 0px));
+  z-index: 18;
+  display: block;
+  padding: 0.25rem 0.45rem;
+  line-height: 1;
+  text-decoration: none;
+  border-radius: 14px;
+  pointer-events: auto;
+  transition:
+    transform 0.2s ease,
+    filter 0.2s ease;
+}
+
+.home-cat-link__star {
+  display: block;
+  font-family: var(--font-sans);
+  color: var(--star);
+  line-height: 1;
+  user-select: none;
+  letter-spacing: 0;
+  opacity: 0.9;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  font-size: clamp(2.35rem, 8vw, 3.6rem);
+  transform: rotate(-10deg);
+  animation: star-twinkle 3.1s ease-in-out infinite;
+  animation-delay: -0.85s;
+}
+
+.home-cat-link:hover .home-cat-link__star,
+.home-cat-link:focus-visible .home-cat-link__star {
+  filter: brightness(1.35);
+  text-shadow:
+    0 0 10px rgba(255, 255, 255, 0.35),
+    0 0 22px rgba(255, 255, 255, 0.25);
+}
+
+.home-cat-link:hover {
+  transform: scale(1.06);
+}
+
+.home-cat-link:focus-visible {
+  outline: 2px solid var(--c-yellow);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-cat-link__star {
+    animation: none;
+  }
+
+  .home-cat-link:hover {
+    transform: none;
+  }
+}
+
+/* Look at my Cat page */
+.cat-page {
+  width: 100%;
+  max-width: 36rem;
+  margin: 0 auto 1rem;
+  text-align: center;
+}
+
+.cat-page__intro {
+  text-align: left;
+  margin-bottom: 1.25rem;
+}
+
+.cat-gallery {
+  width: 100%;
+  max-width: min(1120px, 100%);
+  margin: 0 auto 1rem;
+}
+
+.cat-gallery__hero {
+  margin: 0 0 1.1rem;
+}
+
+.cat-gallery__hero > a {
+  display: block;
+}
+
+.cat-gallery__hero-img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
 }

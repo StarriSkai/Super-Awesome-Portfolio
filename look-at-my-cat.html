@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Look at my Cat</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="page-inner">
+  <a class="back-nav btn btn--ghost" href="index.html" aria-label="Back to home">BACK</a>
+  <div class="stars-sky" aria-hidden="true">
+    <span class="star star--sm" style="top: 14%; left: 3%">✦</span>
+    <span class="star star--lg" style="top: 9%; left: 20%; transform: rotate(-10deg)">★</span>
+    <span class="star star--2xs" style="top: 26%; left: 6%">✧</span>
+    <span class="star star--md" style="top: 38%; left: 1%">★</span>
+    <span class="star star--xs" style="top: 52%; left: 4%; transform: rotate(15deg)">✦</span>
+    <span class="star star--xl" style="top: 66%; left: 2%">✧</span>
+    <span class="star star--sm" style="top: 80%; left: 7%">★</span>
+    <span class="star star--md" style="bottom: 12%; left: 5%">✦</span>
+    <span class="star star--xs" style="bottom: 22%; left: 14%">✧</span>
+    <span class="star star--xxl" style="bottom: 6%; left: 28%; transform: rotate(8deg)">★</span>
+    <span class="star star--sm" style="top: 18%; right: 4%">★</span>
+    <span class="star star--md" style="top: 32%; right: 2%">✦</span>
+    <span class="star star--2xs" style="top: 44%; right: 8%">✧</span>
+    <span class="star star--lg" style="top: 58%; right: 3%; transform: rotate(-14deg)">★</span>
+    <span class="star star--xs" style="top: 72%; right: 6%">✦</span>
+    <span class="star star--sm" style="top: 86%; right: 2%">✧</span>
+    <span class="star star--xl" style="bottom: 18%; right: 5%">★</span>
+    <span class="star star--md" style="bottom: 8%; right: 12%">✦</span>
+    <span class="star star--xs" style="top: 4%; left: 42%">✧</span>
+    <span class="star star--sm" style="top: 47%; left: 11%">★</span>
+    <span class="star star--lg" style="top: 60%; right: 16%">✧</span>
+    <span class="star star--2xs" style="bottom: 38%; left: 20%">✦</span>
+    <span class="star star--md" style="bottom: 32%; right: 18%">★</span>
+  </div>
+  <main class="container">
+    <h1 class="rainbow-chars" aria-label="Look at my Cat">
+      <span>L</span><span>o</span><span>o</span><span>k</span><span class="rainbow-chars__gap" aria-hidden="true"> </span><span>a</span><span>t</span><span class="rainbow-chars__gap" aria-hidden="true"> </span><span>m</span><span>y</span><span class="rainbow-chars__gap" aria-hidden="true"> </span><span>C</span><span>a</span><span>t</span>
+    </h1>
+    <section class="cat-page" aria-labelledby="cat-page-heading">
+      <h2 id="cat-page-heading" class="project-tile__title">The star of the show</h2>
+      <p class="project-tile__desc cat-page__intro">
+        You found the secret door. Here are a few photos — tap one to open it full size.
+      </p>
+    </section>
+
+    <section class="art-gallery cat-gallery" aria-labelledby="cat-photos-heading">
+      <h2 id="cat-photos-heading" class="project-tile__title">Photos</h2>
+      <figure class="art-gallery__item cat-gallery__hero">
+        <a
+          href="images/cat/Screenshot_2025-11-24_143719.png"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Open cat screenshot full size"
+          ><img
+            class="cat-gallery__hero-img"
+            src="images/cat/Screenshot_2025-11-24_143719.png"
+            alt="Cat screenshot"
+            decoding="async"
+            fetchpriority="high"
+        /></a>
+      </figure>
+      <div class="art-gallery__grid" role="list">
+        <figure class="art-gallery__item" role="listitem">
+          <a
+            href="images/cat/20240906_103630.jpg"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open cat photo from September 2024 full size"
+            ><img
+              src="images/cat/20240906_103630.jpg"
+              alt="Cat photo, September 2024"
+              loading="lazy"
+              decoding="async"
+          /></a>
+        </figure>
+        <figure class="art-gallery__item" role="listitem">
+          <a
+            href="images/cat/beanie%20chomp.jpg"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open cat in a beanie full size"
+            ><img
+              src="images/cat/beanie%20chomp.jpg"
+              alt="Cat in a beanie"
+              loading="lazy"
+              decoding="async"
+          /></a>
+        </figure>
+        <figure class="art-gallery__item" role="listitem">
+          <a
+            href="images/cat/20251024_224825.jpg"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open cat photo from October 2025 full size"
+            ><img
+              src="images/cat/20251024_224825.jpg"
+              alt="Cat photo, October 2025"
+              loading="lazy"
+              decoding="async"
+          /></a>
+        </figure>
+      </div>
+    </section>
+
+    <a class="btn btn--ghost" href="index.html">Back to home</a>
+  </main>
+  <script src="gallery-viewer.js" defer></script>
+</body>
+</html>
