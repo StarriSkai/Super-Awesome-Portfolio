@@ -486,16 +486,6 @@ body.page-inner {
   user-select: none;
 }
 
-.image-viewer__helper {
-  margin: 0;
-  font-size: 0.86rem;
-  color: var(--text-muted);
-}
-
-.image-viewer__helper a {
-  color: var(--c-teal);
-}
-
 /* Home: section nav (equal vertical gap from hero + events via main.container gap) */
 .site-nav.btn-row {
   justify-content: center;
