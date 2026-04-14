@@ -20,7 +20,7 @@
 html,
 body {
   cursor:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='19' r='7.2' fill='%23ffb6d9'/%3E%3Ccircle cx='9' cy='11' r='3.3' fill='%23ffb6d9'/%3E%3Ccircle cx='14' cy='8.4' r='2.9' fill='%23ffb6d9'/%3E%3Ccircle cx='18' cy='8.4' r='2.9' fill='%23ffb6d9'/%3E%3Ccircle cx='23' cy='11' r='3.3' fill='%23ffb6d9'/%3E%3C/svg%3E")
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='20' r='7' fill='%23ffb6d9'/%3E%3Ccircle cx='10' cy='11' r='3.1' fill='%23ffb6d9'/%3E%3Ccircle cx='16' cy='8' r='3' fill='%23ffb6d9'/%3E%3Ccircle cx='22' cy='11' r='3.1' fill='%23ffb6d9'/%3E%3C/svg%3E")
       8 7,
     auto;
 }
@@ -34,7 +34,7 @@ select,
 summary,
 [role="button"] {
   cursor:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='19' r='7.2' fill='%23ffd166'/%3E%3Ccircle cx='9' cy='11' r='3.3' fill='%23ffd166'/%3E%3Ccircle cx='14' cy='8.4' r='2.9' fill='%23ffd166'/%3E%3Ccircle cx='18' cy='8.4' r='2.9' fill='%23ffd166'/%3E%3Ccircle cx='23' cy='11' r='3.3' fill='%23ffd166'/%3E%3C/svg%3E")
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='20' r='7' fill='%23ffd166'/%3E%3Ccircle cx='10' cy='11' r='3.1' fill='%23ffd166'/%3E%3Ccircle cx='16' cy='8' r='3' fill='%23ffd166'/%3E%3Ccircle cx='22' cy='11' r='3.1' fill='%23ffd166'/%3E%3C/svg%3E")
       8 7,
     pointer;
 }

@@ -7,15 +7,10 @@
   const img = document.getElementById("viewer-image");
   const stage = document.getElementById("viewer-stage");
   const back = document.getElementById("viewer-back");
-  const fallback = document.getElementById("viewer-fallback");
 
   if (img && src) {
     img.src = src;
     img.alt = alt;
-  }
-
-  if (fallback) {
-    fallback.href = src || from;
   }
 
   if (back) {
