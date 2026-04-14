@@ -466,6 +466,10 @@ body.page-inner {
   cursor: zoom-out;
 }
 
+.image-viewer__stage.is-zoomed.is-panning {
+  cursor: grabbing;
+}
+
 .image-viewer #viewer-image {
   display: block;
   max-width: 100%;
@@ -479,6 +483,7 @@ body.page-inner {
   will-change: transform;
   cursor: inherit;
   margin-inline: auto;
+  user-select: none;
 }
 
 .image-viewer__helper {
