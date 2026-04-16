@@ -57,17 +57,13 @@
 
   <main class="container image-viewer">
     <div class="image-viewer__controls" id="viewer-controls" hidden>
-      <input
-        class="image-viewer__slider"
-        id="viewer-slider"
-        type="range"
-        min="1"
-        max="1"
-        step="1"
-        value="1"
-        aria-label="Choose image in series"
-      />
-      <output class="image-viewer__slider-count" id="viewer-slider-count" for="viewer-slider">1 / 1</output>
+      <button class="btn btn--ghost image-viewer__series-btn" id="viewer-prev" type="button" aria-label="Previous image in series">
+        ←
+      </button>
+      <span class="image-viewer__series-count" id="viewer-series-count" aria-live="polite">1 / 1</span>
+      <button class="btn btn--ghost image-viewer__series-btn" id="viewer-next" type="button" aria-label="Next image in series">
+        →
+      </button>
     </div>
     <div class="image-viewer__stage" id="viewer-stage" aria-label="Image viewer stage">
       <img id="viewer-image" src="" alt="Artwork image" />

@@ -11,8 +11,9 @@
   const stage = document.getElementById("viewer-stage");
   const back = document.getElementById("viewer-back");
   const controls = document.getElementById("viewer-controls");
-  const slider = document.getElementById("viewer-slider");
-  const sliderCount = document.getElementById("viewer-slider-count");
+  const prevBtn = document.getElementById("viewer-prev");
+  const nextBtn = document.getElementById("viewer-next");
+  const seriesCountEl = document.getElementById("viewer-series-count");
   const rawSeries = seriesParam
     ? seriesParam.split("|").map(function (s) {
         return s.trim();
@@ -27,7 +28,25 @@
       series.push(u);
     }
   }
-  let currentIndex = series.indexOf(src);
+
+  const pathsEqual = function (a, b) {
+    if (a === b) return true;
+    try {
+      return decodeURIComponent(a) === decodeURIComponent(b);
+    } catch (e) {
+      return false;
+    }
+  };
+
+  let currentIndex = -1;
+  if (src) {
+    for (let i = 0; i < series.length; i += 1) {
+      if (pathsEqual(series[i], src)) {
+        currentIndex = i;
+        break;
+      }
+    }
+  }
 
   if (src && currentIndex === -1 && series.length) {
     series.unshift(src);
@@ -39,15 +58,23 @@
     if (controls) {
       controls.hidden = !hasSeries;
     }
-    if (slider) {
-      slider.min = "1";
-      slider.max = String(Math.max(1, series.length));
-      slider.value = String(currentIndex + 1);
-      slider.disabled = !hasSeries;
+    if (prevBtn) {
+      prevBtn.disabled = !hasSeries || currentIndex <= 0;
     }
-    if (sliderCount) {
-      sliderCount.value = (currentIndex + 1) + " / " + Math.max(1, series.length);
+    if (nextBtn) {
+      nextBtn.disabled = !hasSeries || currentIndex >= series.length - 1;
     }
+    if (seriesCountEl) {
+      seriesCountEl.textContent = currentIndex + 1 + " / " + Math.max(1, series.length);
+    }
+  };
+
+  const goToSeriesIndex = function (nextIndex) {
+    if (!allowSeriesNav || series.length < 2) return;
+    if (nextIndex < 0 || nextIndex >= series.length || nextIndex === currentIndex) return;
+    currentIndex = nextIndex;
+    setViewerImage(series[currentIndex]);
+    updateSeriesUi();
   };
 
   const setViewerImage = function (nextSrc) {
@@ -185,26 +212,23 @@
   if (allowSeriesNav && series.length > 1) {
     updateSeriesUi();
 
-    if (slider) {
-      slider.addEventListener("input", function () {
-        const nextIndex = Number(slider.value) - 1;
-        if (nextIndex < 0 || nextIndex >= series.length || nextIndex === currentIndex) return;
-        currentIndex = nextIndex;
-        setViewerImage(series[currentIndex]);
-        updateSeriesUi();
+    if (prevBtn) {
+      prevBtn.addEventListener("click", function () {
+        goToSeriesIndex(currentIndex - 1);
+      });
+    }
+    if (nextBtn) {
+      nextBtn.addEventListener("click", function () {
+        goToSeriesIndex(currentIndex + 1);
       });
     }
 
     document.addEventListener("keydown", function (event) {
-      if (event.key === "ArrowLeft" && currentIndex > 0) {
-        currentIndex -= 1;
-        setViewerImage(series[currentIndex]);
-        updateSeriesUi();
+      if (event.key === "ArrowLeft") {
+        goToSeriesIndex(currentIndex - 1);
       }
-      if (event.key === "ArrowRight" && currentIndex < series.length - 1) {
-        currentIndex += 1;
-        setViewerImage(series[currentIndex]);
-        updateSeriesUi();
+      if (event.key === "ArrowRight") {
+        goToSeriesIndex(currentIndex + 1);
       }
     });
   } else {

@@ -546,19 +546,25 @@ body.page-inner {
   display: none !important;
 }
 
-.image-viewer__slider {
-  flex: 1 1 auto;
-  width: 100%;
-  accent-color: #87fff7;
-  cursor: pointer;
+.image-viewer__series-btn {
+  min-width: 2.75rem;
+  padding-inline: 0.65rem;
+  font-size: 1.15rem;
+  line-height: 1;
 }
 
-.image-viewer__slider-count {
-  min-width: 3.4rem;
-  font-size: 0.86rem;
+.image-viewer__series-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.image-viewer__series-count {
+  min-width: 3.5rem;
+  font-size: 0.88rem;
   font-weight: 700;
   color: #e9fdfb;
-  text-align: right;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
 }
 
 .image-viewer__stage {
