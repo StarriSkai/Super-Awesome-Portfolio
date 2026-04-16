@@ -75,9 +75,7 @@
     stage.addEventListener(
       "wheel",
       function (event) {
-        if (!event.ctrlKey && !event.metaKey) {
-          event.preventDefault();
-        }
+        event.preventDefault();
         const delta = event.deltaY > 0 ? -WHEEL_STEP : WHEEL_STEP;
         zoomAroundPoint(scale + delta, event.clientX, event.clientY);
       },
