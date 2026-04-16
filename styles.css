@@ -498,7 +498,7 @@ body.page-inner {
 }
 
 .image-viewer__stage.is-zoomed {
-  cursor: zoom-out;
+  cursor: grab;
 }
 
 .image-viewer__stage.is-zoomed.is-panning {

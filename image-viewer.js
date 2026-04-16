@@ -85,7 +85,8 @@
     );
 
     stage.addEventListener("mousedown", function (event) {
-      if (scale <= MIN_SCALE) return;
+      if (event.button !== 0 || scale <= MIN_SCALE) return;
+      event.preventDefault();
       isPanning = true;
       pointerMoved = false;
       stage.classList.add("is-panning");
@@ -107,12 +108,6 @@
     });
 
     window.addEventListener("mouseup", function () {
-      if (!isPanning) return;
-      isPanning = false;
-      stage.classList.remove("is-panning");
-    });
-
-    stage.addEventListener("mouseleave", function () {
       if (!isPanning) return;
       isPanning = false;
       stage.classList.remove("is-panning");
