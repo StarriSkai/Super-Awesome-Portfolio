@@ -57,8 +57,20 @@
 
   <main class="container image-viewer">
     <div class="image-viewer__controls" id="viewer-controls" hidden>
-      <button class="btn btn--ghost" id="viewer-prev" type="button" aria-label="Previous image">PREV</button>
-      <button class="btn btn--ghost" id="viewer-next" type="button" aria-label="Next image">NEXT</button>
+      <label class="image-viewer__slider-wrap" for="viewer-slider">
+        <span class="image-viewer__slider-label">Cardboard</span>
+        <input
+          class="image-viewer__slider"
+          id="viewer-slider"
+          type="range"
+          min="1"
+          max="1"
+          step="1"
+          value="1"
+          aria-label="Choose image in series"
+        />
+      </label>
+      <output class="image-viewer__slider-count" id="viewer-slider-count" for="viewer-slider">1 / 1</output>
     </div>
     <div class="image-viewer__stage" id="viewer-stage" aria-label="Image viewer stage">
       <img id="viewer-image" src="" alt="Artwork image" />

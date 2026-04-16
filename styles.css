@@ -531,6 +531,38 @@ body.page-inner {
   display: flex;
   gap: 0.75rem;
   align-self: flex-end;
+  align-items: center;
+  background: rgba(18, 16, 34, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
+  padding: 0.5rem 0.85rem;
+}
+
+.image-viewer__slider-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.image-viewer__slider-label {
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: #fff8cf;
+  letter-spacing: 0.03em;
+}
+
+.image-viewer__slider {
+  width: clamp(170px, 30vw, 320px);
+  accent-color: #87fff7;
+  cursor: pointer;
+}
+
+.image-viewer__slider-count {
+  min-width: 3.4rem;
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: #e9fdfb;
+  text-align: right;
 }
 
 .image-viewer__stage {

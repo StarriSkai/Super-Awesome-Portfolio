@@ -10,8 +10,8 @@
   const stage = document.getElementById("viewer-stage");
   const back = document.getElementById("viewer-back");
   const controls = document.getElementById("viewer-controls");
-  const prev = document.getElementById("viewer-prev");
-  const next = document.getElementById("viewer-next");
+  const slider = document.getElementById("viewer-slider");
+  const sliderCount = document.getElementById("viewer-slider-count");
   const series = seriesParam ? seriesParam.split("|").filter(Boolean) : [];
   let currentIndex = series.indexOf(src);
 
@@ -25,11 +25,14 @@
     if (controls) {
       controls.hidden = !hasSeries;
     }
-    if (prev) {
-      prev.disabled = !hasSeries || currentIndex <= 0;
+    if (slider) {
+      slider.min = "1";
+      slider.max = String(Math.max(1, series.length));
+      slider.value = String(currentIndex + 1);
+      slider.disabled = !hasSeries;
     }
-    if (next) {
-      next.disabled = !hasSeries || currentIndex >= series.length - 1;
+    if (sliderCount) {
+      sliderCount.value = (currentIndex + 1) + " / " + Math.max(1, series.length);
     }
   };
 
@@ -168,19 +171,11 @@
   if (series.length > 1) {
     updateSeriesUi();
 
-    if (prev) {
-      prev.addEventListener("click", function () {
-        if (currentIndex <= 0) return;
-        currentIndex -= 1;
-        setViewerImage(series[currentIndex]);
-        updateSeriesUi();
-      });
-    }
-
-    if (next) {
-      next.addEventListener("click", function () {
-        if (currentIndex >= series.length - 1) return;
-        currentIndex += 1;
+    if (slider) {
+      slider.addEventListener("input", function () {
+        const nextIndex = Number(slider.value) - 1;
+        if (nextIndex < 0 || nextIndex >= series.length || nextIndex === currentIndex) return;
+        currentIndex = nextIndex;
         setViewerImage(series[currentIndex]);
         updateSeriesUi();
       });
