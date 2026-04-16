@@ -475,6 +475,14 @@ body.page-inner {
   display: block;
 }
 
+.art-gallery__caption {
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: #fff6fb;
+  text-align: center;
+}
+
 .page-image-viewer .container.image-viewer {
   width: 100%;
   max-width: min(1400px, 100%);
