@@ -479,6 +479,17 @@ body.page-inner {
   display: block;
 }
 
+.art-gallery__series-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.35rem;
+}
+
+.art-gallery__series-grid img {
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
 .art-gallery__caption {
   margin-top: 0.5rem;
   font-size: 0.95rem;
