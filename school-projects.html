@@ -245,5 +245,23 @@
     </section>
 
   </main>
+  <script>
+    document.body.classList.add("js-img-fade");
+
+    const projectImages = document.querySelectorAll(".project-tile__figure img");
+
+    const setLoaded = (img) => {
+      img.classList.add("is-loaded");
+    };
+
+    for (const img of projectImages) {
+      if (img.complete) {
+        setLoaded(img);
+      } else {
+        img.addEventListener("load", () => setLoaded(img), { once: true });
+        img.addEventListener("error", () => setLoaded(img), { once: true });
+      }
+    }
+  </script>
 </body>
 </html>

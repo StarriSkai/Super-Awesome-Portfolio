@@ -273,6 +273,31 @@ body.page-inner {
   vertical-align: middle;
 }
 
+/* Smooth image reveal once the file is decoded and painted */
+.js-img-fade .project-tile__figure {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+}
+
+.js-img-fade .project-tile__figure img {
+  opacity: 0;
+  transform: scale(1.01);
+  transition: opacity 260ms ease-out, transform 260ms ease-out;
+  will-change: opacity, transform;
+}
+
+.js-img-fade .project-tile__figure img.is-loaded {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js-img-fade .project-tile__figure img {
+    transition: none;
+    transform: none;
+  }
+}
+
 .project-tile__figure figcaption {
   margin-top: 0.45rem;
   font-size: 0.88rem;
