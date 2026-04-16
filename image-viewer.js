@@ -50,6 +50,28 @@
       }
     };
 
+    const zoomAroundPoint = function (nextScale, clientX, clientY) {
+      const clampedScale = clamp(nextScale, MIN_SCALE, MAX_SCALE);
+      if (clampedScale === scale) return;
+
+      const stageRect = stage.getBoundingClientRect();
+      const pointX = clientX - stageRect.left;
+      const pointY = clientY - stageRect.top;
+      const contentX = stage.scrollLeft + pointX;
+      const contentY = stage.scrollTop + pointY;
+      const scaleRatio = clampedScale / scale;
+
+      scale = clampedScale;
+      applyZoom();
+
+      if (scale > MIN_SCALE) {
+        stage.scrollLeft = contentX * scaleRatio - pointX;
+        stage.scrollTop = contentY * scaleRatio - pointY;
+      }
+    };
+
+    img.style.transformOrigin = "top left";
+
     stage.addEventListener(
       "wheel",
       function (event) {
@@ -57,8 +79,7 @@
           event.preventDefault();
         }
         const delta = event.deltaY > 0 ? -WHEEL_STEP : WHEEL_STEP;
-        scale = clamp(scale + delta, MIN_SCALE, MAX_SCALE);
-        applyZoom();
+        zoomAroundPoint(scale + delta, event.clientX, event.clientY);
       },
       { passive: false }
     );
@@ -97,10 +118,14 @@
       stage.classList.remove("is-panning");
     });
 
-    stage.addEventListener("click", function () {
+    stage.addEventListener("click", function (event) {
       if (pointerMoved) return;
-      scale = scale > MIN_SCALE ? MIN_SCALE : CLICK_ZOOM_SCALE;
-      applyZoom();
+      if (scale > MIN_SCALE) {
+        scale = MIN_SCALE;
+        applyZoom();
+        return;
+      }
+      zoomAroundPoint(CLICK_ZOOM_SCALE, event.clientX, event.clientY);
     });
 
     document.addEventListener("keydown", function (event) {
