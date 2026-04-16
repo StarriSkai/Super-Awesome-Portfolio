@@ -5,6 +5,7 @@
   const from = params.get("from") || "index.html";
   const seriesParam = params.get("series");
   const seriesAlt = params.get("seriesAlt") || alt;
+  const allowSeriesNav = params.get("seriesNav") === "1";
 
   const img = document.getElementById("viewer-image");
   const stage = document.getElementById("viewer-stage");
@@ -34,7 +35,7 @@
   }
 
   const updateSeriesUi = function () {
-    const hasSeries = series.length > 1;
+    const hasSeries = allowSeriesNav && series.length > 1;
     if (controls) {
       controls.hidden = !hasSeries;
     }
@@ -52,7 +53,7 @@
   const setViewerImage = function (nextSrc) {
     if (!img || !nextSrc) return;
     img.src = nextSrc;
-    img.alt = series.length > 1 ? seriesAlt : alt;
+    img.alt = allowSeriesNav && series.length > 1 ? seriesAlt : alt;
   };
 
   if (img && src) {
@@ -181,7 +182,7 @@
     applyZoom();
   }
 
-  if (series.length > 1) {
+  if (allowSeriesNav && series.length > 1) {
     updateSeriesUi();
 
     if (slider) {

@@ -14,6 +14,7 @@
       const from = window.location.pathname.split("/").pop() || "index.html";
       const series = link.getAttribute("data-series");
       const seriesAlt = link.getAttribute("data-series-alt") || alt;
+      const seriesSlider = link.hasAttribute("data-series-slider");
 
       const viewerUrl =
         "image-viewer.html?src=" +
@@ -23,6 +24,7 @@
         (series
           ? "&series=" + encodeURIComponent(series) + "&seriesAlt=" + encodeURIComponent(seriesAlt)
           : "") +
+        (series && seriesSlider ? "&seriesNav=1" : "") +
         "&from=" +
         encodeURIComponent(from);
 
