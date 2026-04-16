@@ -530,29 +530,20 @@ body.page-inner {
 .image-viewer__controls {
   display: flex;
   gap: 0.75rem;
-  align-self: flex-end;
+  align-self: center;
   align-items: center;
   background: rgba(18, 16, 34, 0.7);
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 999px;
   padding: 0.5rem 0.85rem;
-}
-
-.image-viewer__slider-wrap {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-}
-
-.image-viewer__slider-label {
-  font-size: 0.86rem;
-  font-weight: 700;
-  color: #fff8cf;
-  letter-spacing: 0.03em;
+  width: min(560px, 92vw);
+  justify-content: center;
+  order: 2;
 }
 
 .image-viewer__slider {
-  width: clamp(170px, 30vw, 320px);
+  flex: 1 1 auto;
+  width: 100%;
   accent-color: #87fff7;
   cursor: pointer;
 }
