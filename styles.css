@@ -541,6 +541,11 @@ body.page-inner {
   order: 2;
 }
 
+/* Author `display:flex` must not override the native `hidden` attribute */
+.image-viewer__controls[hidden] {
+  display: none !important;
+}
+
 .image-viewer__slider {
   flex: 1 1 auto;
   width: 100%;

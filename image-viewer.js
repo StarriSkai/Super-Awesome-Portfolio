@@ -12,7 +12,20 @@
   const controls = document.getElementById("viewer-controls");
   const slider = document.getElementById("viewer-slider");
   const sliderCount = document.getElementById("viewer-slider-count");
-  const series = seriesParam ? seriesParam.split("|").filter(Boolean) : [];
+  const rawSeries = seriesParam
+    ? seriesParam.split("|").map(function (s) {
+        return s.trim();
+      }).filter(Boolean)
+    : [];
+  const series = [];
+  const seen = Object.create(null);
+  for (let i = 0; i < rawSeries.length; i += 1) {
+    const u = rawSeries[i];
+    if (!seen[u]) {
+      seen[u] = true;
+      series.push(u);
+    }
+  }
   let currentIndex = series.indexOf(src);
 
   if (src && currentIndex === -1 && series.length) {
