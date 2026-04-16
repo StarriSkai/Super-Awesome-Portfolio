@@ -12,12 +12,17 @@
       const img = link.querySelector("img");
       const alt = img ? img.getAttribute("alt") || "Artwork image" : "Artwork image";
       const from = window.location.pathname.split("/").pop() || "index.html";
+      const series = link.getAttribute("data-series");
+      const seriesAlt = link.getAttribute("data-series-alt") || alt;
 
       const viewerUrl =
         "image-viewer.html?src=" +
         encodeURIComponent(href) +
         "&alt=" +
         encodeURIComponent(alt) +
+        (series
+          ? "&series=" + encodeURIComponent(series) + "&seriesAlt=" + encodeURIComponent(seriesAlt)
+          : "") +
         "&from=" +
         encodeURIComponent(from);
 

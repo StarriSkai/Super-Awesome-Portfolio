@@ -3,14 +3,44 @@
   const src = params.get("src");
   const alt = params.get("alt") || "Artwork image";
   const from = params.get("from") || "index.html";
+  const seriesParam = params.get("series");
+  const seriesAlt = params.get("seriesAlt") || alt;
 
   const img = document.getElementById("viewer-image");
   const stage = document.getElementById("viewer-stage");
   const back = document.getElementById("viewer-back");
+  const controls = document.getElementById("viewer-controls");
+  const prev = document.getElementById("viewer-prev");
+  const next = document.getElementById("viewer-next");
+  const series = seriesParam ? seriesParam.split("|").filter(Boolean) : [];
+  let currentIndex = series.indexOf(src);
+
+  if (src && currentIndex === -1 && series.length) {
+    series.unshift(src);
+    currentIndex = 0;
+  }
+
+  const updateSeriesUi = function () {
+    const hasSeries = series.length > 1;
+    if (controls) {
+      controls.hidden = !hasSeries;
+    }
+    if (prev) {
+      prev.disabled = !hasSeries || currentIndex <= 0;
+    }
+    if (next) {
+      next.disabled = !hasSeries || currentIndex >= series.length - 1;
+    }
+  };
+
+  const setViewerImage = function (nextSrc) {
+    if (!img || !nextSrc) return;
+    img.src = nextSrc;
+    img.alt = series.length > 1 ? seriesAlt : alt;
+  };
 
   if (img && src) {
-    img.src = src;
-    img.alt = alt;
+    setViewerImage(src);
   }
 
   if (back) {
@@ -133,5 +163,42 @@
     });
 
     applyZoom();
+  }
+
+  if (series.length > 1) {
+    updateSeriesUi();
+
+    if (prev) {
+      prev.addEventListener("click", function () {
+        if (currentIndex <= 0) return;
+        currentIndex -= 1;
+        setViewerImage(series[currentIndex]);
+        updateSeriesUi();
+      });
+    }
+
+    if (next) {
+      next.addEventListener("click", function () {
+        if (currentIndex >= series.length - 1) return;
+        currentIndex += 1;
+        setViewerImage(series[currentIndex]);
+        updateSeriesUi();
+      });
+    }
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "ArrowLeft" && currentIndex > 0) {
+        currentIndex -= 1;
+        setViewerImage(series[currentIndex]);
+        updateSeriesUi();
+      }
+      if (event.key === "ArrowRight" && currentIndex < series.length - 1) {
+        currentIndex += 1;
+        setViewerImage(series[currentIndex]);
+        updateSeriesUi();
+      }
+    });
+  } else {
+    updateSeriesUi();
   }
 })();
