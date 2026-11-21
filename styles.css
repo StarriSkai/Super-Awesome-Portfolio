@@ -1070,7 +1070,7 @@ body.page-home .site-footer {
   margin: 0;
   padding: 0.75rem 0.5rem 0.25rem;
   text-align: center;
-  font-size: clamp(1rem, 2.4vw, 1.15rem);
+  font-size: clamp(1.65rem, 4.2vw, 2.15rem);
   font-weight: 700;
   color: var(--text);
 }
