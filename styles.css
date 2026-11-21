@@ -1411,11 +1411,6 @@ a.events-tile__event-link:focus-visible {
   text-align: center;
 }
 
-.cat-page__intro {
-  text-align: left;
-  margin-bottom: 1.25rem;
-}
-
 .cat-gallery {
   width: 100%;
   max-width: min(1120px, 100%);
