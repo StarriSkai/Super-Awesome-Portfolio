@@ -640,10 +640,39 @@ a.commissions-open {
   width: min(100%, 40rem);
   padding: 1.45rem 2rem;
   border-radius: 12px;
-  background: var(--c-pink);
-  color: #fff;
+  background: var(--c-yellow);
+  color: #0a0a0a;
   text-align: center;
   font-size: clamp(1.3rem, 3.2vw, 1.85rem);
+}
+
+@keyframes commissions-shake {
+  0%,
+  100% {
+    transform: translateX(0) rotate(0deg);
+  }
+  20% {
+    transform: translateX(-5px) rotate(-1.2deg);
+  }
+  40% {
+    transform: translateX(5px) rotate(1.2deg);
+  }
+  60% {
+    transform: translateX(-3px) rotate(-0.7deg);
+  }
+  80% {
+    transform: translateX(3px) rotate(0.7deg);
+  }
+}
+
+a.commissions-open:hover {
+  animation: commissions-shake 0.45s ease-in-out 2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  a.commissions-open:hover {
+    animation: none;
+  }
 }
 
 .events-stack .events-tile {
